@@ -21,7 +21,22 @@ class Todo(db.Model):
 @app.route('/', methods=['POST', 'GET'])
 def index():
     days_arr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    return render_template('index.html', days_of_the_week=days_arr)
+    if request.method == 'POST':
+        task_content = request.form['content']
+        task_due_date = request.form['due_date']
+        new_task = Todo(content=task_content, due_date=task_due_date)
+
+        try:
+            db.session.add(new_task)
+            db.session.commit()
+            return redirect('/')
+        
+        except:
+            return 'There was an error with submitting your task. Please try again later.'
+
+    else:
+        tasks = Todo.query.all()
+        return render_template('index.html', days_of_the_week=days_arr, tasks=tasks)
 
 if __name__ == "__main__":
     app.run(debug=True)

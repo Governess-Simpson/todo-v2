@@ -1,11 +1,22 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 150px 75px;
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-bottom: 75px;
 }
 
 table {
     border-collapse: collapse;
     width: 600px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 table, th, td {
@@ -23,28 +34,35 @@ table, th, td {
 
 th.Monday {
     background-color: #FFCCCB;
+    text-transform: uppercase;
 }
 
 th.Tuesday {
     background-color: #FED8B1;
+    text-transform: uppercase;
 }
 
 th.Wednesday {
     background-color: lightgoldenrodyellow;
+    text-transform: uppercase;
 }
 
 th.Thursday {
     background-color: lightgreen;
+    text-transform: uppercase;
 }
 
 th.Friday {
     background-color: lightblue;
+    text-transform: uppercase;
 }
 
 th.Saturday {
     background-color: #CBC3E3;
+    text-transform: uppercase;
 }
 
 th.Sunday {
     background-color: lightgray;
+    text-transform: uppercase;
 }

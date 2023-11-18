@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 
 {% block body %}
+    <div class="form">
+        <h2>Enter Task Here:</h2>
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content">
+            <select name="due_date">
+                <option value="" selected>--Select An Option--</option>
+                {% for day in days_of_the_week %}
+                    <option value="{{ day }}">{{ day }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+
     <div class="box">
         {% for day in days_of_the_week %}
             <table>
@@ -11,11 +25,19 @@
                     <th>Task</th>
                     <th>Actions</th>
                 </tr>
-                <tr>
-                    <td>Testing</td>
-                    <td>Testing2</td>
-                </tr>
-            </table> 
-        {% endfor %}
-    </div>
+                    {% if tasks|length < 1 %}
+                        <td colspan="2">There are currently no tasks. Start by creating one below!</td>
+                    {% else %}
+                        {% for task in tasks%}
+                            {% if task.due_date == day %}
+                                <tr>
+                                    <td>{{ task.content}}</td>
+                                    <td>Testing2</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </table> 
+            {% endfor %}
+        </div>
 {% endblock %}
