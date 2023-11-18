@@ -1,4 +1,50 @@
 body {
-    margin: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 150px 75px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 600px;
+}
+
+table, th, td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+}
+
+th.Monday {
+    background-color: #FFCCCB;
+}
+
+th.Tuesday {
+    background-color: #FED8B1;
+}
+
+th.Wednesday {
+    background-color: lightgoldenrodyellow;
+}
+
+th.Thursday {
+    background-color: lightgreen;
+}
+
+th.Friday {
+    background-color: lightblue;
+}
+
+th.Saturday {
+    background-color: #CBC3E3;
+}
+
+th.Sunday {
+    background-color: lightgray;
 }

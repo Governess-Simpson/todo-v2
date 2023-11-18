@@ -1,3 +1,21 @@
+{% extends 'base.html' %}
+
 {% block body %}
-<h1>Hello, World!</h1>
+    <div class="box">
+        {% for day in days_of_the_week %}
+            <table>
+                <tr>
+                    <th colspan="2" class={{ day }}>{{ day }}</th>
+                </tr>
+                <tr>
+                    <th>Task</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td>Testing</td>
+                    <td>Testing2</td>
+                </tr>
+            </table> 
+        {% endfor %}
+    </div>
 {% endblock %}

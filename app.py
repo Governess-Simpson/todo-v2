@@ -20,7 +20,8 @@ class Todo(db.Model):
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template(index.html)
+    days_arr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    return render_template('index.html', days_of_the_week=days_arr)
 
 if __name__ == "__main__":
     app.run(debug=True)
