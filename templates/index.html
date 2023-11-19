@@ -6,7 +6,6 @@
         <form action="/" method="POST">
             <input type="text" name="content" id="content">
             <select name="due_date">
-                <option value="" selected>--Select An Option--</option>
                 {% for day in days_of_the_week %}
                     <option value="{{ day }}">{{ day }}</option>
                 {% endfor %}
@@ -19,20 +18,22 @@
         {% for day in days_of_the_week %}
             <table>
                 <tr>
-                    <th colspan="2" class={{ day }}>{{ day }}</th>
+                    <th class={{ day }}>{{ day }}</th>
                 </tr>
-                <tr>
-                    <th>Task</th>
-                    <th>Actions</th>
-                </tr>
-                    {% if tasks|length < 1 %}
-                        <td colspan="2">There are currently no tasks. Start by creating one below!</td>
+                    {% if tasks|selectattr("due_date", "==", day)| list | length < 1 %}
+                    <tr>
+                        <td><h4 style="text-align: center">There are currently no tasks. Start by creating one below!</h4></td>
+                    </tr>
                     {% else %}
                         {% for task in tasks%}
                             {% if task.due_date == day %}
                                 <tr>
-                                    <td>{{ task.content}}</td>
-                                    <td>Testing2</td>
+                                    <td>
+                                        <span id="task-content">{{ task.content}}</span>
+                                        <button class="btn" id="complete"><img src="/static/icons/check_icon.png"></button>
+                                        <button class="btn" id="update"><img src="/static/icons/pencil_icon.png"></button>
+                                        <button class="btn" id="delete"><img src="/static/icons/delete_icon.png"></button>
+                                    </td>
                                 </tr>
                             {% endif %}
                         {% endfor %}
