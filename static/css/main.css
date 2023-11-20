@@ -38,7 +38,7 @@ table, th, td {
     float: right;
 }
 
-#task-content {
+.content {
     float: left;
     text-align: center;
     margin: 24px;

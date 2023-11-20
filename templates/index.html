@@ -29,10 +29,20 @@
                             {% if task.due_date == day %}
                                 <tr>
                                     <td>
-                                        <span id="task-content">{{ task.content}}</span>
-                                        <button class="btn" id="complete"><img src="/static/icons/check_icon.png"></button>
-                                        <button class="btn" id="update"><img src="/static/icons/pencil_icon.png"></button>
-                                        <button class="btn" id="delete"><img src="/static/icons/delete_icon.png"></button>
+                                    <span class="content" id="text-{{ task.id }}">{{ task.content}}</span>
+                                        <form action="/update/{{ task.id }}" method="POST" style="display: none" class="content" id="form-{{ task.id }}">
+                                            <input type="text" name="content" id="input-{{ task.id }}" value="{{task.content}}">
+                                            <select name="due_date" id="{{ task.id }}">
+                                                {% for day in days_of_the_week %}
+                                                    <option value="{{ day }}">{{ day }}</option>
+                                                {% endfor %}
+                                            </select>
+                                            <input type="submit" value="Update Task">
+                                        </form>
+
+                                        <button class="btn" id="complete" name="complete"><img src="/static/icons/check_icon.png"></button>
+                                        <button class="btn update" id="update-{{task.id}}" name="update" onclick="getId(this.id)"><img src="/static/icons/pencil_icon.png"></button>
+                                        <a href="/delete/{{task.id}}"><button class="btn" id="delete" name="{{ task.id }}"><img src="/static/icons/delete_icon.png"></button></a>
                                     </td>
                                 </tr>
                             {% endif %}

@@ -38,5 +38,36 @@ def index():
         tasks = Todo.query.all()
         return render_template('index.html', days_of_the_week=days_arr, tasks=tasks)
 
+@app.route('/delete/<int:id>')
+def delete(id):
+    task_to_delete = Todo.query.get_or_404(id)
+    
+    try:
+        db.session.delete(task_to_delete)
+        db.session.commit()
+        return redirect('/')
+    
+    except:
+        return 'There was an error with deleting your task. Please try again later.'
+
+@app.route('/update/<int:id>', methods=['POST'])
+def update(id):
+    task = Todo.query.get_or_404(id)
+
+    task.content = request.form['content']
+    task.due_date = request.form['due_date']
+
+    try:
+        db.session.commit()
+        return redirect('/')
+    except:
+        return "There was an issue with updating your task. Please try again later."
+
+def complete():
+    pass
+
+def undo():
+    pass
+
 if __name__ == "__main__":
     app.run(debug=True)
