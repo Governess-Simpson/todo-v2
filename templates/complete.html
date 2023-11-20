@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="form">
+        <h2>Completed Tasks</h2>
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Due Date</th>
+                <th>Date of Completion</th> 
+                <th>Action</th> 
+            </tr>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.content }}</td>
+                    <td>{{ task.due_date }}</td>
+                    <td>{{ task.complete_date.date()}}</td>
+                    <button class="btn undo" id="undo" name="undo"><img src="/static/icons/undo_icon.png"></button>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

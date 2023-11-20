@@ -5,6 +5,12 @@ body {
     margin-bottom: 75px;
 }
 
+#complete-link {
+    border-top: 1px solid black;
+    padding: 24px;
+    margin: 24px;
+}
+
 table {
     border-collapse: collapse;
     width: 700px;

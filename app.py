@@ -62,9 +62,16 @@ def update(id):
         return redirect('/')
     except:
         return "There was an issue with updating your task. Please try again later."
+    
 
-def complete():
-    pass
+@app.route('/complete')
+@app.route('/complete/<int:id>', methods=['GET', 'POST'])
+def completed_tasks():
+    if request.method == 'POST':
+        pass
+    else:
+        tasks = Todo.query.filter_by(is_complete=True).all()
+        return render_template('complete.html', tasks=tasks)
 
 def undo():
     pass
