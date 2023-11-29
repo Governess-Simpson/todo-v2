@@ -1,5 +1,12 @@
 # To-Do V2
+An enchanced todo list app that allows users to create, move, edit, and delete tasks from specific days of the week (as opposed to a long, unorganized task list), skyrocketing productivity and organization.
 
+## Stack
+- Frontend: HTML, CSS, Javascript
+- Backend: Python (Flask mini-framework)
+- Database: SQLite
+
+  
 ### Credit (Images):
 * <a target="_blank" href="https://icons8.com/icon/63262/checkmark">Check</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
