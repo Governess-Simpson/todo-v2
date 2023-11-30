@@ -1,5 +1,10 @@
 # To-Do V2
-An enchanced todo list app that allows users to create, move, edit, and delete tasks from specific days of the week (as opposed to a long, unorganized task list), skyrocketing productivity and organization.
+An enchanced todo list app that allows users to create, move, update, and delete tasks from specific days of the week (as opposed to a long, unorganized task list), skyrocketing productivity and organization.
+
+## Remaining Work
+- Move completed tasks to a separate page
+- Allow completed tasks to be "undone" and brought back to the main page.
+- Polish UI.
 
 ## Stack
 - Frontend: HTML, CSS, Javascript
